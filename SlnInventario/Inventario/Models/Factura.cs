@@ -12,18 +12,26 @@ namespace Inventario.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Categoria
+    public partial class Factura
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Categoria()
+        public Factura()
         {
-            this.Producto = new HashSet<Producto>();
+            this.DetalleFactura = new HashSet<DetalleFactura>();
         }
     
-        public int IdCategoria { get; set; }
-        public string Nombre { get; set; }
+        public int IdFactura { get; set; }
+        public int IdCliente { get; set; }
+        public System.DateTime Fecha { get; set; }
+        public double PrecioTotal { get; set; }
+        public string NombreTienda { get; set; }
+        public int Telefono { get; set; }
+        public string Ubicacion { get; set; }
+        public string Correo { get; set; }
+        public string Facebook { get; set; }
     
+        public virtual Cliente Cliente { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Producto> Producto { get; set; }
+        public virtual ICollection<DetalleFactura> DetalleFactura { get; set; }
     }
 }

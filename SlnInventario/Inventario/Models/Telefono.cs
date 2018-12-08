@@ -12,18 +12,21 @@ namespace Inventario.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Categoria
+    public partial class Telefono
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Categoria()
+        public Telefono()
         {
-            this.Producto = new HashSet<Producto>();
+            this.Cliente = new HashSet<Cliente>();
         }
     
-        public int IdCategoria { get; set; }
-        public string Nombre { get; set; }
+        public int IdTelefono { get; set; }
+        public Nullable<int> TelefonoCasa { get; set; }
+        public Nullable<int> TelefonoCelular { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Producto> Producto { get; set; }
+        public virtual ICollection<Cliente> Cliente { get; set; }
+        public virtual Telefono Telefono1 { get; set; }
+        public virtual Telefono Telefono2 { get; set; }
     }
 }
